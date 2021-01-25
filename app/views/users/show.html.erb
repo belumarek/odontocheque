@@ -1,17 +1,24 @@
 <div class="container my-5 py-5 ">
   <div class="row col-12 justify-content-center">
-    <div class="text-center borde border border-ligth w-50  shadow-sm p-3 mb-5 bg-white rounded"> 
-      <h1> Bienvenido <%= @user.username.capitalize %></h1>
-      <h3><%=@user.first_name.capitalize %> <%=@user.last_name.capitalize %></h3>
-      <p>Matricula número : <%=@user.registration_number %></p>
-      <p><%=@user.province.capitalize %></p>
-      <div class="my-2">
-        <%= link_to "imprimir", cheque_path(format: "pdf"), class: "btn btn-success" %>
-        <%= link_to "Volver", root_path, class: "btn btn-warning" %>
-      </div>
-      <div>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
-      </div>
+    <div class="d-flex">
+        <div class="text-center border border-ligth w-50  shadow-sm p-3 mb-5 bg-white rounded">
+          <h1> Bienvenido <%= @user.username.capitalize %></h1>
+          <h3><%=@user.first_name.capitalize %> <%=@user.last_name.capitalize %></h3>
+          <p>Matricula número : <%=@user.registration_number %></p>
+          <p><%=@user.province.capitalize %></p>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+        </div>
+        <div class="mx-5 p-5 border border-ligth w-50  shadow-sm p-3 mb-5 bg-white rounded">
+        <div>
+          <h2 class="text-center mb-5">Elija una marca</h2>
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+        <% @brands.each do |brand| %>
+            <span class="mx-3">
+             <%= link_to brand.name, brand_path(brand.id), class: "btn btn-warning" %>
+            </span>
+             <% end %>
+        </div>
     </div>
   </div>
 </div>

@@ -1,0 +1,28 @@
+
+<div class="container">
+  <div class="row col-12 justify-content-center">
+    <div class="text-center  border border-ligth w-100  shadow-sm p-3 mb-5 bg-white rounded ">
+      <h1>Products</h1>
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Products</th>
+                <th><%= link_to "Volver", user_path(current_user), class: "btn btn-success" %></th>
+              </tr>
+              </thead>
+              <tbody>
+                <% @brand.products.each do |product| %>
+                <tr>
+                    <td><%= product.name%></td>
+                    <td><%= link_to "ver", product_path(product.id), class: "btn btn-warning" %></td>
+                  </tr>
+                  </th>
+
+                    <% end %>
+                </tbody>
+            </table>
+          </div>
+    </div>
+  </div>
+</div>

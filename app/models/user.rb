@@ -5,7 +5,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  PROVINCES = ['CABA', 'Buenos Aires', 'Catamarca', 'Chaco', 'Chubut', 'Córdoba', 'Corrientes', 'Entre Ríos', 'Formosa', 'Jujuy', 'La Pampa' 'La Rioja', 'Mendoza', 'Misiones', 'Neuquén', 'Río Negro', 'Salta', 'San Juan', 'Santa Cruz', 'Santa Fe', 'Santiago del Estero', 'Tierra del Fuego', 'Tucumán']
+  PROVINCES = ['CABA', 'Buenos Aires','Córdoba', 'Mendoza', 'Salta', 'Santa Fe', 'Tucumán']
 
   validates :province, inclusion: { in: PROVINCES }
   validates :registration_number, length: { is: 6 }, presence: true
@@ -13,6 +13,8 @@ class User < ApplicationRecord
   validates :first_name, length: { in: 2..20 }, allow_blank: true
   validates :last_name, presence: true
   validates :last_name, length: { in: 2..20 }, allow_blank: true
+
+  has_many :cheques, dependent: :destroy
 
   validate :registration_number_uniqueness
     def national?
