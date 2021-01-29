@@ -8,14 +8,14 @@
             <thead class="thead-dark">
               <tr>
                 <th scope="col">Products</th>
-                <th><%= link_to "Volver", user_path(current_user), class: "btn btn-success" %></th>
+                <th><%= link_to "Volver", user_path(current_user), class: "btn btn-primary" %></th>
               </tr>
               </thead>
               <tbody>
                 <% @brand.products.each do |product| %>
                 <tr>
-                    <td><%= product.name%></td>
-                    <td><%= link_to "ver", product_path(product.id), class: "btn btn-warning" %></td>
+                    <td><%= image_tag product.name, size: "100" %></td>
+                    <td><%= link_to "Emitir cheque", cheque_path(format: "pdf"), class: "btn btn-success" %></td>
                   </tr>
                   </th>
 

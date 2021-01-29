@@ -1,0 +1,12 @@
+.cheque-background {
+  background-image: image-url("odontocheque-frente-sensodyne.jpg");
+  background-size: 105% 105%;
+  background-position: bottom center;
+
+}
+
+@media (max-width: 576px) {
+  .cheque-background {
+  background-image: image-url("odontocheque-frente-sensodyne.jpg");
+  }
+}

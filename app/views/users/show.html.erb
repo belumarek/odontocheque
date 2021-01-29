@@ -1,21 +1,21 @@
 <div class="container my-5 py-5 ">
   <div class="row col-12 justify-content-center">
     <div class="d-flex">
-        <div class="text-center border border-ligth w-50  shadow-sm p-3 mb-5 bg-white rounded">
+        <div class="text-center border border-ligth w-50  shadow-sm p-lg-3 mb-lg-5 bg-white rounded">
           <h1> Bienvenido <%= @user.username.capitalize %></h1>
           <h3><%=@user.first_name.capitalize %> <%=@user.last_name.capitalize %></h3>
           <p>Matricula número : <%=@user.registration_number %></p>
           <p><%=@user.province.capitalize %></p>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
         </div>
-        <div class="mx-5 p-5 border border-ligth w-50  shadow-sm p-3 mb-5 bg-white rounded">
+        <div class="mx-lg-5  border border-ligth w-50  shadow-sm p-lg-3 mb-lg-5 bg-white rounded">
         <div>
           <h2 class="text-center mb-5">Elija una marca</h2>
         </div>
         <div class="d-flex justify-content-center align-items-center">
         <% @brands.each do |brand| %>
-            <span class="mx-3">
-             <%= link_to brand.name, brand_path(brand.id), class: "btn btn-warning" %>
+            <span class="mx-4">
+              <%= link_to "#{image_tag brand.name, size: "100x60"}".html_safe, brand_path(brand.id) %>
             </span>
              <% end %>
         </div>
