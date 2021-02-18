@@ -12,7 +12,6 @@ class ChequesController < ApplicationController
     end
 
     def numero_de_cheque
-  
     end
   end
   # def cheque
